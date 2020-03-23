@@ -34,7 +34,7 @@ router.post("/login", (req, res) => {
   
           res.status(200).json({ hello: user.username });
         } else {
-          res.status(401).json({ message: "invalid credentials" });
+          res.status(401).json({ message: "Could not find existing user with that password. Please try again " });
         }
       })
       .catch(error => {

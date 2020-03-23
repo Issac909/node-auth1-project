@@ -8,6 +8,18 @@ const authRouter = require('../auth/router.js');
 
 const server = express();
 
+const sessionConfig = {
+    name: "yummy",
+    secret: "Encrypt we give!",
+    cookie: {
+      maxAge: 1000 * 60 * 60,
+      secure: false, 
+      httpOnly: true, 
+    },
+    resave: false,
+    saveUninitialized: true, 
+  };
+
 server.use(helmet());
 server.use(express.json());
 server.use(cors());

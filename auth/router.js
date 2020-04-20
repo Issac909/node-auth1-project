@@ -7,8 +7,8 @@ const Users = require("../users/users-model.js");
 router.post("/register", (req, res) => {
   const userInfo = req.body;
 
-  const ROUNDS = process.env.HASH_ROUNDS || 8;
-  const hash = bcrypt.hashSync(userInfo.password, ROUNDS);
+  const NumofHashRounds = process.env.HASH_ROUNDS || 8;
+  const hash = bcrypt.hashSync(userInfo.password, NumofHashRounds);
 
   userInfo.password = hash;
 

@@ -2,24 +2,13 @@ const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
 const session = require("express-session");
+const sessionConfig = require('./sessionConfig');
 
 const usersRouter = require('../users/users-router.js');
 const authRouter = require('../auth/router.js');
 const restricted = require('../auth/restricted-middleware');
 
 const server = express();
-
-const sessionConfig = {
-    name: "yummy",
-    secret: "Encrypt we give!",
-    cookie: {
-      maxAge: 1000 * 60 * 60,
-      secure: false, 
-      httpOnly: true, 
-    },
-    resave: false,
-    saveUninitialized: true, 
-  };
 
 server.use(helmet());
 server.use(express.json());
